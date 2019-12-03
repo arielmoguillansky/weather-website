@@ -22,7 +22,7 @@ switch (window.location.pathname) {
 			form.classList.add('reveal')
 			message1.textContent = 'Loading...';
 
-			let url = 'http://localhost:3000/weather?adress=' + location;
+			let url = '/weather?adress=' + location;
 
 			fetch(url).then((response) => {
 				response.json().then((data) => {
