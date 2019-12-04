@@ -472,20 +472,27 @@ opacity: 0;
     height: auto;
     display: flex;
     flex-direction: column;
-    align-items: center;
+    align-items: start;
     justify-content: space-between;
     position: absolute;
     animation: show 2s linear forwards;
-    width: 50%;
+    width: 75%;
 		margin:0 auto;
 		bottom: 50%;
 		left:25%;
 		z-index: 100;
 }
-
-form {
+.search {
 	width: 100%;
+	display: inline-flex;
+	align-items: center;
+}
+form {
+	width: 75%;
 	margin: 10px 0;
+	display: flex;
+	flex-direction: column;
+	justify-content: end;
 }
 
 input {
@@ -530,15 +537,13 @@ input:focus + .label {
 }
 
 .border {
-  position: absolute;
-  bottom: 4em;
-  left: 0;
   height: 2px;
   width: 100%;
   background: rgba(0,0,0,1);
   transform: scaleX(0);
   transform-origin: 0 0;
   transition: all 0.8s ease;
+	margin-top: -2px;
 }
 
 input:focus + span + .border {
@@ -584,16 +589,50 @@ input:-webkit-autofill:active {
 
 .temp {
 	transition: opacity 1s;
-	position: absolute;
+	margin-left: .7em;
   top: -.2em;
 	color: rgba(0,0,0,.5);
 	opacity: 0;
 	font-size: 3em;
-	left: 12em;
 }
 
 .temp:hover{
 	opacity: 1!important;
+}
+
+.enter-btn {
+	fill: none;
+	stroke: rgba(0,0,0,.6);
+	height: 1.5em;
+	stroke-dasharray: 14.5em;
+	stroke-dashoffset: 7.5em;
+	animation: dash-enter 3s ease-in-out infinite;
+	opacity: 0;
+	stroke-width: .15em;
+	cursor: pointer;
+	position: absolute;
+	right: 11em;
+}
+
+@keyframes dash-enter {
+	 0% {
+  	opacity: 0;
+    stroke-dashoffset: 15em;
+  }
+  10% {
+  	opacity: 1;
+    stroke-dashoffset: 15em;
+  }
+  70% {
+  	stroke-dashoffset: 0em;
+  }
+  95% {
+  	opacity: 1;
+  }
+	100% {
+		opacity: 0;
+		stroke-dashoffset: 0em;
+	}
 }
 
 .bg-error {
@@ -640,7 +679,7 @@ input:-webkit-autofill:active {
 }
 
 .info {
-	width: 100%;
+	width: 75%;
 	display: flex;
 	flex-direction: row;
 	justify-content: start;

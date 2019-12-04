@@ -1,6 +1,6 @@
 
 
-const weatherForm = document.querySelector('form');
+const weatherForm = document.querySelector('.enter-btn');
 const search = document.querySelector('input');
 const message1 = document.getElementById('message1');
 const inputContainer = document.querySelector('.container-icon-index');
@@ -14,7 +14,7 @@ const link2 = document.querySelector('.link2');
 
 switch (window.location.pathname) {
 	case '/':
-		weatherForm.addEventListener('submit', (e) => {
+		weatherForm.addEventListener('click', (e) => {
 			e.preventDefault();
 
 			const location = search.value;
