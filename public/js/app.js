@@ -24,18 +24,21 @@ switch (window.location.pathname) {
 
 			let url = '/weather?adress=' + location;
 
-			fetch(url).then((response) => {
-				response.json().then((data) => {
-					if (data.error) {
-						message1.textContent = data.error;
-					} else {
-						bgColor(data.forecast.icon);
-						message1.textContent = '';
-						temp.textContent = data.forecast.temp + '°C';
-						//message2.textContent = data.forecast.icon + data.forecast.temp;
-					}
-				})
-			})
+			(function interval() {
+				fetch(url).then((response) => {
+					response.json().then((data) => {
+						if (data.error) {
+							message1.textContent = data.error;
+						} else {
+							bgColor(data.forecast.icon);
+							message1.textContent = '';
+							temp.textContent = data.forecast.temp + '°C';
+							//message2.textContent = data.forecast.icon + data.forecast.temp;
+						}
+					})
+				});
+				setInterval(interval, 600000);
+			})()
 
 		})
 

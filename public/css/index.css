@@ -37,15 +37,15 @@ body {
 }
 
 .svg-sun{
-	width:300px;
-	height:300px;
+	width:20em;
+	height:20em;
 }
 .svg-moon{
-	width:300px;
-	height:300px;
+	width:20em;
+	height:20em;
 }
 
-#nucleo{
+.nucleo{
 	fill:transparent;
 	stroke: black;
 	stroke-width:5;
@@ -58,7 +58,7 @@ body {
 
 .svg-rays{
 	position: absolute;
-	height: 500px;
+	height: 30em;
 	stroke: black;
   stroke-linecap: round;
   overflow: visible;
@@ -275,21 +275,21 @@ body {
 	}
 }
 
-#pc1 {
+.pc1 {
 	height: 400px;
   left: -25em;
   top: 5em;
   animation: pc1 15s linear infinite;
 }
 
-#pc2 {
+.pc2 {
 	height: 200px;
   left: -25em;
   top: -4em;
   animation: pc1 10s linear infinite;
 }
 
-#pc3 {
+.pc3 {
 	height: 500px;
   right: -35em;
   top: 25em;
@@ -725,4 +725,21 @@ input:-webkit-autofill:active {
     flex-direction: column;
     align-items: center;
 	}
+	.svg-sun{
+	width:10em;
+	height:10em;
+}
+.svg-moon{
+	width:10em;
+	height:10em;
+}
+.svg-rays{
+	position: absolute;
+	height: 15em;
+	stroke: black;
+  stroke-linecap: round;
+  overflow: visible;
+	animation: rayRot 20s linear 0s infinite;
+}
+
 }
