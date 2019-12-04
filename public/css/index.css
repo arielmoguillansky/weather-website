@@ -541,17 +541,6 @@ input:focus + .label {
   transition: all 0.8s ease;
 }
 
-@media (max-width: 600px) {
-  .border {
-    top: 5.4em;
-  }
-	.container-icon-error {
-		 display: flex;
-    flex-direction: column;
-    align-items: center;
-	}
-}
-
 input:focus + span + .border {
   transform: scaleX(1);
 }
@@ -720,4 +709,20 @@ input:-webkit-autofill:active {
 	color: rgba(0,0,0,.8);
 	background-color: rgba(255,255,255,0.8);
 	cursor: pointer;
+}
+
+@media (max-width: 600px) {
+  .border {
+    top: 2.5em;
+  }
+	.temp {
+		    font-size: 1.5em;
+    left: 10em;
+    top: .5em;
+	}
+	.container-icon-error {
+		 display: flex;
+    flex-direction: column;
+    align-items: center;
+	}
 }
