@@ -3,4 +3,6 @@ A simple and minimalistic weather site
 
 
 screenShots: 
-<img
+
+![Image preview](1.png)
+![Image preview](2.png)
