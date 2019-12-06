@@ -10,36 +10,43 @@ const returnIndex = document.querySelector('.msg4');
 const about = document.querySelector('.about-ico');
 const link1 = document.querySelector('.link1');
 const link2 = document.querySelector('.link2');
+const regex = /chia/i;
 
 
 switch (window.location.pathname) {
+
 	case '/':
 		weatherForm.addEventListener('click', (e) => {
 			e.preventDefault();
 
 			const location = search.value;
+			const regTest = regex.test(search.value);
 			inputContainer.classList.add('goDown')
 			form.classList.add('reveal')
 			message1.textContent = 'Loading...';
 
-			let url = '/weather?adress=' + location;
+			if (regTest) {
+				chia();
+			} else {
 
-			(function interval() {
-				fetch(url).then((response) => {
-					response.json().then((data) => {
-						if (data.error) {
-							message1.textContent = data.error;
-						} else {
-							bgColor(data.forecast.icon);
-							message1.textContent = '';
-							temp.textContent = data.forecast.temp + '°C';
-							//message2.textContent = data.forecast.icon + data.forecast.temp;
-						}
-					})
-				});
-				setInterval(interval, 600000);
-			})()
+				let url = '/weather?adress=' + location;
 
+				(function interval() {
+					fetch(url).then((response) => {
+						response.json().then((data) => {
+							if (data.error) {
+								message1.textContent = data.error;
+							} else {
+								bgColor(data.forecast.icon);
+								message1.textContent = '';
+								temp.textContent = data.forecast.temp + '°C';
+								//message2.textContent = data.forecast.icon + data.forecast.temp;
+							}
+						})
+					});
+					setInterval(interval, 600000);
+				})()
+			}
 		})
 
 		about.addEventListener('click', (e) => {
@@ -63,6 +70,29 @@ switch (window.location.pathname) {
 }
 
 /*--------------------------------------------------------------------------------*/
+
+function chia() {
+	let bg = document.querySelector('.bg');
+	bg.style.background = 'rgba(0,0,0,0.05)';
+	let child = document.createElement('div');
+	child.setAttribute('class', 'container-icon-chia');
+	let svgChild = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
+	svgChild.setAttribute('viewBox', '-5 0 350 340');
+	svgChild.setAttribute('class', 'heart')
+	let path = document.createElementNS('http://www.w3.org/2000/svg', 'path');
+	path.setAttribute('d', 'M254.791 33.251c-46.555 0-76.089 51.899-83.079 51.899-6.111 0-34.438-51.899-83.082-51.899-47.314 0-85.947 39.021-88.476 86.27-1.426 26.691 7.177 47.001 19.304 65.402 24.222 36.76 130.137 125.248 152.409 125.248 22.753 0 127.713-88.17 152.095-125.247 12.154-18.483 20.731-38.711 19.304-65.402-2.528-47.25-41.159-86.271-88.475-86.271');
+	let span1 = document.createElement('span');
+	let span2 = document.createElement('span');
+	span1.setAttribute('class', 'chiaSpan');
+	span2.setAttribute('class', 'chiaSpan');
+	span1.textContent = 'I';
+	span2.textContent = 'U';
+	svgChild.appendChild(path);
+	child.appendChild(span1);
+	child.appendChild(svgChild);
+	child.appendChild(span2);
+	bg.appendChild(child);
+}
 
 function addRain(iconWeather) {
 
